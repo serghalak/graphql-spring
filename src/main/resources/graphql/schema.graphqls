@@ -6,3 +6,15 @@ type Pet {
     name: String
     color: String
 }
+
+type Mutation {
+    changeUser(newName: String!): User
+}
+type User {
+    name: String
+    address: Address
+}
+type Address {
+    street: String
+    country: String
+}
