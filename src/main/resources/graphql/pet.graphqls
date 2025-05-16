@@ -1,0 +1,11 @@
+#type Query {
+#    favoritePet: Pet
+#}
+#type Pet {
+#    name: String
+#    owner: Person
+#}
+type Person {
+    firstName: String
+    lastName: String
+}

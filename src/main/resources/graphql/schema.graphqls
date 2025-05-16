@@ -1,5 +1,6 @@
 type Query {
     pets: [Pet]
+    favoritePet: Pet
 }
 
 type Pet {
