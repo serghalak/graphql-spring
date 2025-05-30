@@ -39,9 +39,11 @@ public class PetsController {
 //        //return petService.getPerson(pet.ownerId());
 //        return petService.getPerson(pet.name());
 //    }
-    @SchemaMapping
-    Map<String, String> owner(Pet pet) {
-        return Map.of("firstName","Andi",
-                "lastName","Marek");
+    //@SchemaMapping(typeName = "Pet", field = "owner")
+    @QueryMapping
+    /*Map<String, String>*/Owner owner(@Argument Pet pet) {
+//        return Map.of("firstName","Andi",
+//                "lastName","Marek");
+        return new Owner(pet.name(), pet.color());
     }
 }

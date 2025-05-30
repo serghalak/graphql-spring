@@ -1,6 +1,7 @@
 type Query {
     pets: [Pet]
     favoritePet: Pet
+    owner(pet: PetInput): Owner
 }
 
 type Pet {
@@ -18,4 +19,13 @@ type User {
 type Address {
     street: String
     country: String
+}
+type Owner {
+    firstName: String
+    lastName: String
+}
+
+input PetInput {
+    name: String
+    color: String
 }
