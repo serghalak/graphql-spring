@@ -3,6 +3,13 @@ type Query {
     favoritePet: Pet
     owner(pet: PetInput): Owner
     favoriteIPet: IPet
+    search(pattern: String, limit: Int): String
+    searchInput(searchInput: SearchInput): String
+}
+
+input SearchInput {
+    pattern: String
+    limit: Int
 }
 
 type Pet {
