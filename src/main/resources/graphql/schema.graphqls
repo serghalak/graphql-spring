@@ -2,11 +2,27 @@ type Query {
     pets: [Pet]
     favoritePet: Pet
     owner(pet: PetInput): Owner
+    favoriteIPet: IPet
 }
 
 type Pet {
     name: String
-    color: String
+    owner: Owner
+}
+interface IPet {
+    name: String
+    owner: Person
+}
+
+type Dog implements IPet {
+    name: String
+    owner: Person
+    doesBark: Boolean
+}
+type Cat implements IPet {
+    name: String
+    owner: Person
+    doesMeow: Boolean
 }
 
 type Mutation {

@@ -1,5 +1,6 @@
 package myservice.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
@@ -13,7 +14,12 @@ import java.util.Map;
 public class PetsController {
 
     private String newName;
-    private PetService petService;
+    private final PetService petService;
+
+    public PetsController(PetService petService) {
+        this.petService = petService;
+    }
+
 
     @QueryMapping
     List<Pet> pets() {
@@ -45,5 +51,20 @@ public class PetsController {
 //        return Map.of("firstName","Andi",
 //                "lastName","Marek");
         return new Owner(pet.name(), pet.color());
+    }
+
+
+    //add wmethods for own  Resolver
+    @QueryMapping
+    IPet favoriteIPet() {
+        return petService.getFavoriteIPet();
+    }
+    @SchemaMapping
+    Person owner(Dog dog) {
+        return petService.getPerson(dog.ownerId());
+    }
+    @SchemaMapping
+    Person owner(Cat cat) {
+        return petService.getPerson(cat.ownerId());
     }
 }
