@@ -1,6 +1,7 @@
 package myservice.service;
 
 import graphql.schema.TypeResolver;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.graphql.execution.RuntimeWiringConfigurer;
 
@@ -18,6 +19,8 @@ public class Config {
         }
     };
 
+    // TypeResolver for IPet
+    @Bean
     RuntimeWiringConfigurer runtimeWiringConfigurer() {
         return wiringBuilder -> wiringBuilder
                 .type("Pet", typeWiring -> typeWiring
