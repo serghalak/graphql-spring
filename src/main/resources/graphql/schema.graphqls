@@ -1,3 +1,5 @@
+scalar Date
+
 type Query {
     pets: [Pet]
     favoritePet: Pet
@@ -15,6 +17,7 @@ input SearchInput {
 type Pet {
     name: String
     owner: Owner
+    dateOfBirth: Date
 }
 interface IPet {
     name: String

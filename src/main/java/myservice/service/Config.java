@@ -20,12 +20,12 @@ public class Config {
     };
 
     // TypeResolver for IPet
-    @Bean
-    RuntimeWiringConfigurer runtimeWiringConfigurer() {
-        return wiringBuilder -> wiringBuilder
-                .type("Pet", typeWiring -> typeWiring
-                        .typeResolver(petTypeResolver))
-                .type("IPet", typeWiring -> typeWiring
-                        .typeResolver(petTypeResolver));
-    }
+//    @Bean
+//    RuntimeWiringConfigurer runtimeWiringConfigurer() {
+//        return wiringBuilder -> wiringBuilder
+//                .type("Pet", typeWiring -> typeWiring
+//                        .typeResolver(petTypeResolver))
+//                .type("IPet", typeWiring -> typeWiring
+//                        .typeResolver(petTypeResolver));
+//    }
 }
