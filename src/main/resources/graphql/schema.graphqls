@@ -2,6 +2,19 @@ type Query {
     pets: [Pet]
 }
 
+type Mutation {
+    changeUser(newName: String!): User
+}
+
+type User {
+    name: String
+    address: Address
+}
+type Address {
+    street: String
+    country: String
+}
+
 type Pet {
     name: String
     color: String
